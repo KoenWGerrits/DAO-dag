@@ -1,0 +1,17 @@
+{
+  "rawContent": "",
+  "title": "@{triggerBody()?['Subthema']}",
+  "isActive": true,
+  "slug": "@{items('For_each')?['Slug']}",
+  "shortDescription": "@{triggerBody()?['Duiding']}",
+  "currentThreatLevel": @{int(triggerBody()?['Prioriteit'])},
+  "maxThreatLevel": 4,
+  "iconId": "@{item()?['IconID']}",
+  "selectedRegions": [
+    "08db9327-f2e2-4936-8e13-002c8d976805"
+  ],
+  "categories": [
+    "@{item()?['HoofdthemaID/Value']}"
+  ],
+  "id": "@{item()?['LandelijkbeeldID']}"
+}
