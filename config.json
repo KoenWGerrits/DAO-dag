@@ -1,0 +1,78 @@
+{
+  "input_csv": "C:/Users/gerritsk/Documents/Natuurbrand_2025/Natuurbrand_pipeline/weather_df_twente.csv",
+  "output_dir": "C:/Users/gerritsk/Documents/Natuurbrand_2025/Natuurbrand_pipeline/models/",
+  "log_dir": "C:/Users/gerritsk/Documents/Natuurbrand_2025/Natuurbrand_pipeline/logs/",
+  "target": "brand",
+  "brand_weight": 2.0,
+  "non_brand_weight": 1.0,
+  "features":  [
+    "wind_max",
+    "wind_gem",
+    "temp_gem",
+    "temp_gem_som_3",
+    "temp_gem_som_7",
+    "temp_min",
+    "temp_max",
+    "vocht_gem",
+    "vocht_max",
+    "neerslag_som_3",
+    "neerslag_som_7",
+    "vocht_min",
+    "neerslag_som",
+    "HDWI",
+    "HDWI_gust",
+    "vocht_gem_som_3",
+    "vocht_gem_som_7"],
+  "random_state": 42,
+  "test_size": 0.2,
+  "run_models": {
+    "xgboost": true,
+    "random_forest": true,
+    "svm": true,
+    "lightgbm": true,
+    "logistic_regression": true,
+    "catboost": true
+  },
+  "xgb_params": {
+    "learning_rate": 0.1,
+    "n_estimators": 380,
+    "max_depth": 5
+  },
+  "rf_params": {
+    "n_estimators": 300,
+    "max_depth": 20,
+    "min_samples_split": 6,
+    "min_samples_leaf": 4,
+    "class_weight": "balanced",
+    "random_state": 42
+  },
+  "svm_params": {
+    "kernel": "rbf",
+    "C": 1.0,
+    "gamma": "scale",
+    "class_weight": "balanced"
+  },
+  "lgbm_params": {
+    "n_estimators": 300,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "max_depth": -1,
+    "class_weight": "balanced",
+    "random_state": 42
+  },
+  "logreg_params": {
+    "C": 100,
+    "max_iter": 100,
+    "penalty": "l2",
+    "solver": "liblinear"
+  },
+    "catboost_params": {
+    "iterations": 1000,
+    "max_depth": 3,
+    "learning_rate": 0.01,
+    "class_weights": [1, 4],
+    "l2_leaf_reg": 3,
+    "loss_function": "Logloss",
+    "eval_metric": "F1"
+  }
+}
